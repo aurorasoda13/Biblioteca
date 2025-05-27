@@ -1,0 +1,684 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.menu a:hover {
+  color: #0077cc;
+}
+
+/* Main content */
+.main-content {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.welcome p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+}
+
+.footer h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Recensione + Libro affiancati --- */
+.recensione-libro-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem;
+  justify-content: center;
+}
+
+.form-container {
+  flex: 1;
+  max-width: 400px;
+  background-color: #fdfdfd;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.form-container input[type="submit"] {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+/* --- Libro --- */
+.riquadro_libro {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.riquadro_libro > div {
+  display: flex;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 1rem;
+  gap: 2rem;
+  transition: transform 0.3s;
+}
+
+.riquadro_libro > div:hover {
+  transform: translateY(-3px);
+}
+
+.riquadro_libro img {
+  max-width: 250px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.libro-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.libro-info h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.libro-info p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.libro-info p strong {
+  color: #555;
+}
+
+.libro-descrizione {
+  font-style: italic;
+  margin: 1rem 0;
+  color: #444;
+}
+
+.book-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.book-buttons a button,
+.book-buttons form input[type="submit"] {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #62aeff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-buttons a button:hover,
+.book-buttons form input[type="submit"]:hover {
+  background-color: #016cdf;
+}
+
+/* Responsive per mobile */
+@media screen and (max-width: 768px) {
+  .riquadro_libro > div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .libro-info {
+    align-items: center;
+  }
+
+  .riquadro_libro img {
+    max-width: 80%;
+  }
+
+  .recensione-libro-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Gallery */
+.gallery {
+  padding: 4rem 2rem;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Carousel */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.carousel-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permette di andare a capo */
+  gap: 20px;
+  justify-content: center; /* Centrare i libri nella riga */
+  padding: 10px;
+  overflow-x: visible; /* Rimuove lo scroll orizzontale */
+}
+
+.carousel-slide {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  flex: 0 0 auto;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slide img {
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Modal */
+#imgModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#imgModalContent {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+#imgModalClose {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#imgModalClose:hover {
+  color: #ccc;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+}
+
+#prevBtn {
+  left: 20px;
+}
+
+#nextBtn {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    width: 150px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+
+  #imgModalContent {
+    max-width: 95%;
+    max-height: 70vh;
+  }
+}
+
+/* Pulsante scarica */
+.download-button {
+  margin-top: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.download-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+/* --- Recensioni (a card) --- */
+.recensioni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.recensione-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recensione-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recensione-autore {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.recensione-testo {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+/* --- Form Inserimento Libro Ottimizzato --- */
+.insert-libro-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.insert-libro-wrapper .form-container {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Miglioramento estetico delle label/input del form */
+.insert-libro-wrapper label {
+  font-weight: 500;
+  margin-top: 1rem;
+  display: block;
+  color: #2c3e50;
+}
+
+.insert-libro-wrapper input[type="text"],
+.insert-libro-wrapper textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.insert-libro-wrapper textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.insert-libro-wrapper input[type="submit"] {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.insert-libro-wrapper input[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+/* Responsive migliorato */
+@media screen and (max-width: 600px) {
+  .insert-libro-wrapper {
+    padding: 1rem;
+  }
+
+  .insert-libro-wrapper .form-container {
+    padding: 1.5rem;
+  }
+
+  .insert-libro-wrapper input[type="submit"] {
+    font-size: 1rem;
+  }
+}
+
+
+.insert-libro-wrapper select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  appearance: none; /* Rimuove la freccia default (meglio per personalizzazioni avanzate) */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+}
+
+.insert-libro-wrapper select:focus {
+  border-color: #0077cc;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,119,204,0.2);
+}
+
+/* Stile coerente per input link (PDF e Copertina) con validazione */
+.insert-libro-wrapper input#Link,
+.insert-libro-wrapper input#Copertina {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Stato valido */
+.insert-libro-wrapper input#Link:valid,
+.insert-libro-wrapper input#Copertina:valid {
+  border-color: #2ecc71; /* Verde tenue */
+  background-color: #f6fff9;
+}
+
+/* Stato non valido */
+.insert-libro-wrapper input#Link:invalid,
+.insert-libro-wrapper input#Copertina:invalid {
+  border-color: #e74c3c; /* Rosso tenue */
+  background-color: #fff6f6;
+}
+
+/* Effetto focus */
+.insert-libro-wrapper input#Link:focus,
+.insert-libro-wrapper input#Copertina:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
+}
+
+/* --- Form filtro genere --- */
+.filtro-genere-wrapper {
+  max-width: 300px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.filtro-genere-wrapper label {
+  font-weight: bold;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.filtro-genere-wrapper select {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  margin-bottom: 1rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23333' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+.filtro-genere-wrapper input[type="submit"] {
+  padding: 0.6rem 1.2rem;
+  background-color: #0077cc;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Rimuove ogni effetto hover e ingrandimento da tutte le immagini */
+img {
+  transition: none !important;
+  transform: none !important;
+  scale: 1 !important;
+  cursor: default !important;
+}
+
+img:hover {
+  transform: none !important;
+  scale: 1 !important;
+  filter: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Specifiche modifiche dove c'erano effetti di hover */
+.riquadro_libro > div {
+  transition: none !important;
+}
+
+.riquadro_libro > div:hover {
+  transform: none !important;
+}
+
+.gallery-grid img {
+  transition: none !important;
+}
+
+.gallery-grid img:hover {
+  transform: none !important;
+}
+
+.carousel-slide img {
+  transition: none !important;
+}
+
+.carousel-slide img:hover {
+  transform: none !important;
+}
+

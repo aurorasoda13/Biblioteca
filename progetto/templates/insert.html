@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}
+  Inserisci libro 
+{% endblock %}
+
+{% block content %}
+
+<div class="insert-libro-wrapper">
+
+  <!-- FORM INSERIMENTO LIBRO -->
+  <div class="form-container">
+    <h1>Inserisci il libro</h1>
+    <form action="/executeinsert" method="POST">
+      
+      <label for="Titolo">Titolo</label>
+      <input type="text" id="Titolo" name="Titolo" required>
+
+      <label for="Autore">Autore</label>
+      <input type="text" id="Autore" name="Autore" required>
+
+      <label for="Link">Link del PDF</label>
+<input type="url" id="Link" name="Link" required placeholder="https://esempio.com/libro.pdf">
+  
+          
+      <label for="Genere">Seleziona il Genere</label>
+      <select name="nome" id="nome" required>
+        {%for element in result%}
+       <option value="{{element[0]}}">{{element[0]}}</option>
+        {% endfor %}
+      </select>
+
+      <label for="Copertina">Link della copertina</label>
+<input type="url" id="Copertina" name="Copertina" required placeholder="https://esempio.com/copertina.jpg">
+
+
+      <label for="descrizione">Descrizione</label>
+      <textarea id="descrizione" name="descrizione" rows="10" required></textarea>
+
+      <input type="submit" value="Conferma">
+    </form>
+  </div>
+
+</div>
+{% endblock %}

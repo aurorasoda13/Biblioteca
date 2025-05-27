@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}
+  Recensione 
+  {% for book in result %}
+    {{ book[1] }}
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center;">Inserisci una Recensione</h1>
+
+<div class="recensione-libro-wrapper">
+
+  <!-- FORM RECENSIONE -->
+      {% for book in result %}
+  <div class="form-container">
+    <form action="/executerecensione" method="POST">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="recensione">Recensione</label>
+       <input type="hidden" name="IDLibro" value="{{ book[5] }}">
+      <textarea id="recensione" name="recensione" rows="10" required></textarea>
+
+      <input type="submit" value="Invia Recensione">
+    </form>
+  </div>
+
+  <!-- INFO LIBRO -->
+  <div class="riquadro_libro">
+ 
+    <div class="libro-container">
+      <img src="{{ book[0] }}" alt="Copertina di {{ book[1] }}">
+      <div class="libro-info">
+        <h3>{{ book[1] }}</h3>
+        <p><strong>Autore:</strong> {{ book[2] }}</p>
+        <p><strong>Genere:</strong> {{ book[3] }}</p>
+        <p class="libro-descrizione">{{ book[4] }}</p>
+
+        
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

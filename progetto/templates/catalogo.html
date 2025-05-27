@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Catalogo{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Catalogo Libri</h2>
+<div class="filtro-genere-wrapper">
+  <form action="/filtragenere" method="POST">
+    <label for="Genere">Filtra per Genere</label>
+    <select name="nome" id="nome" required>
+      {% for element in generi %}
+      <option value="{{element[0]}}">{{element[0]}}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Cerca">
+  </form>
+</div>
+
+
+
+<div class="carousel-container">
+  <div class="carousel-wrapper" id="carouselWrapper">
+    {% for book in result %}
+    <div class="carousel-slide">
+      <img src="{{ book[0] }}" alt="Copertina di {{ book[1] }}" style="max-width: 200px;" class="book-image">
+      <h3>{{ book[1] }}</h3>
+      <p><strong>Autore:</strong> {{ book[2] }}</p>
+      <p><strong>Genere:</strong> {{ book[3] }}</p>
+
+      <form action="/libro" method="POST">
+        <input type="hidden" name="IDLibro" value="{{ book[4] }}">
+        <input type="submit" value="Apri il libro 📖">
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

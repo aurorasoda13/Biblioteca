@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <header>
+      <div class="container nav">
+        <div class="logo">📚 Biblioteca</div>
+        <nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('catalogo') }}">Catalogo</a></li>
+            <li><a href="{{ url_for('newlibro') }}">Carica un libro</a></li>
+
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+      <div class="container">
+        <h3>Contatti</h3>
+        <p>Email: info@bibliotecaaurora.it</p>
+        <p>Telefono: +39 0123 456789</p>
+      </div>
+    </footer>
+   
+</body>
+</html>

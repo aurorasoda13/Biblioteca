@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}
+  {% for book in result %}
+    {{ book[1] }}
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<div class="riquadro_libro">
+  {% for book in libro %}
+  <div class="libro-container" style="display: flex; gap: 2rem; margin-bottom: 3rem;">
+    <img src="{{ book[0] }}" alt="Copertina di {{ book[1] }}" style="max-width: 250px; object-fit: contain;">
+    <div class="libro-info" style="flex-grow: 1;">
+      <h3>{{ book[1] }}</h3>
+      <p><strong>Autore:</strong> {{ book[2] }}</p>
+      <p><strong>Genere:</strong> {{ book[3] }}</p>
+      <p class="libro-descrizione">{{ book[4] }}</p>
+
+      <div class="book-buttons" style="margin-top: 1rem; display: flex; gap: 1rem; align-items: center;">
+        <a href="{{ book[5] }}" target="_blank" rel="noopener noreferrer">
+          <button>⬇ Scarica il libro</button>
+        </a>
+
+        <form action="/recensione" method="POST" style="display: inline;">
+          <input type="hidden" name="IDLibro" value="{{ book[6] }}">
+          <input type="submit" value="✎ Aggiungi recensione">
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<!--recensioni-->
+<div class="recensioni-grid">
+  {% for recensione in recensioni %}
+    <div class="recensione-card">
+      <p class="recensione-autore"><strong>{{ recensione[0] }}</strong></p>
+      <p class="recensione-testo">{{ recensione[1] }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+
+
+</div>
+
+
+<div id="imgModal">
+  <span id="imgModalClose">&times;</span>
+  <span id="prevBtn" class="nav-arrow">&#10094;</span>
+  <img id="imgModalContent">
+  <span id="nextBtn" class="nav-arrow">&#10095;</span>
+</div>
+
+<script>
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("imgModalContent");
+  const span = document.getElementById("imgModalClose");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let currentImageIndex = -1;
+
+  const images = document.querySelectorAll('.riquadro_libro img');
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', function () {
+      currentImageIndex = index;
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    });
+  });
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  function changeImage(direction) {
+    currentImageIndex += direction;
+    if (currentImageIndex < 0) {
+      currentImageIndex = images.length - 1;
+    } else if (currentImageIndex >= images.length) {
+      currentImageIndex = 0;
+    }
+    modalImg.src = images[currentImageIndex].src;
+  }
+
+  prevBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    changeImage(-1);
+  });
+
+  nextBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    changeImage(1);
+  });
+
+  window.addEventListener('keydown', function (event) {
+    if (modal.style.display === "block") {
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        changeImage(-1);
+      } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        changeImage(1);
+      } else if (event.key === "Escape") {
+        modal.style.display = "none";
+      }
+    }
+  });
+</script>
+{% endblock %}
