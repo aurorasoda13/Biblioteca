@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 import os
 import pymysql.cursors
 from flask import Flask, render_template, request, redirect
