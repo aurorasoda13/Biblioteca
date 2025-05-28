@@ -1,0 +1,32 @@
+# Escludi file di ambiente e configurazioni locali
+.env
+*.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cartelle di sviluppo e cache di Python
+instance/
+*.sqlite3
+
+# File di log
+*.log
+
+# Cartelle di ambiente virtuale (virtualenv)
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# File IDE e editor (esempi: VSCode, PyCharm)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# File di sistema (macOS, Windows)
+.DS_Store
+Thumbs.db
