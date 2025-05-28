@@ -80,7 +80,7 @@ def executerecensionerecensione():
     cursor=connection.cursor()
     sql="INSERT INTO A_Recensione (nome, recensione, IDLibro) VALUES (%s, %s, %s)"
     print(sql)
-    cursor.execute(sql, (nome, recensione, IDLibro))
+    cursor.execute(sql, (nome, recensione, IDLibro, ))
     connection.commit()
     cursor.close()
     return redirect("/catalogo")
@@ -115,5 +115,5 @@ def executeinsert():
     cursor.close()
     return redirect("/catalogo")
 
-
-app.run(host='0.0.0.0', port=81)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=81)
