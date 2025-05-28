@@ -105,7 +105,7 @@ def executeinsert():
     descrizione=request.form['descrizione']
     cursor=connection.cursor()
     sql="SELECT IDGenere FROM A_Genere WHERE nome=%s"
-    cursor.execute(sql, (nome))
+    cursor.execute(sql, (nome, ))
     result=cursor.fetchone()
     print(result[0])
     sql="INSERT INTO A_Libro (Titolo, Autore, Link, Copertina, descrizione, IDGenere) VALUES (%s, %s, %s, %s, %s, %s)"
