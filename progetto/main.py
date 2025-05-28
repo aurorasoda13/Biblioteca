@@ -17,15 +17,31 @@ def index():
 
 @app.route('/catalogo')
 def catalogo():
-    cursor = connection.cursor()
-    sql = 'SELECT Copertina, Titolo, Autore, nome, IDLibro FROM A_Libro inner join A_Genere on A_Libro.IDGenere=A_Genere.IDGenere'
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    sql='SELECT nome FROM A_Genere'
-    cursor.execute(sql)
-    generi = cursor.fetchall()
-    cursor.close()
+    try:
+        cursor = connection.cursor()
+        
+        query_libri = '''
+            SELECT Copertina, Titolo, Autore, nome, IDLibro
+            FROM A_Libro
+            INNER JOIN A_Genere ON A_Libro.IDGenere = A_Genere.IDGenere
+        '''
+        cursor.execute(query_libri)
+        result = cursor.fetchall()
+
+        query_generi = 'SELECT nome FROM A_Genere'
+        cursor.execute(query_generi)
+        generi = cursor.fetchall()
+
+    except Exception as e:
+        print("Errore durante la query:", e)
+        result = []
+        generi = []
+    
+    finally:
+        cursor.close()
+    
     return render_template("catalogo.html", result=result, generi=generi)
+
 
 @app.route('/filtragenere', methods=['POST'])
 def filtragenere():
