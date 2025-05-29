@@ -1,15 +1,18 @@
 
 import pymysql.cursors
 from flask import Flask, render_template, request, redirect
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 connection = pymysql.connect(
-    host='138.41.20.102',
-    port=53306,
-    user='soda',
-    password='studente',
-    database='5bi_2025'
+    host=os.getenv("DB_HOST"),
+    port=int(os.getenv("DB_PORT")),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME")
 )
-
 
 app = Flask(__name__)
 
