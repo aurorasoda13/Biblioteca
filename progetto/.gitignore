@@ -1,6 +1,4 @@
-# Escludi file di ambiente e configurazioni locali
-.env
-*.env
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
